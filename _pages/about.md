@@ -17,8 +17,8 @@ redirect_from:
 
 <div class="lang-toggle-wrap">
   <div class="lang-toggle" aria-label="Language switcher">
-    <button type="button" class="lang-toggle__button" data-lang-switch="en">EN</button>
-    <button type="button" class="lang-toggle__button" data-lang-switch="zh">中文</button>
+    <button type="button" class="lang-toggle__button" data-lang-switch="en" onclick="window.switchSiteLanguage && window.switchSiteLanguage('en'); return false;">EN</button>
+    <button type="button" class="lang-toggle__button" data-lang-switch="zh" onclick="window.switchSiteLanguage && window.switchSiteLanguage('zh'); return false;">中文</button>
   </div>
 </div>
 

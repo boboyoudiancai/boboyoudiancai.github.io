@@ -6,6 +6,8 @@
 <script>
   (function () {
     var transitionDuration = 320;
+    var currentLang = null;
+    var transitionTimer = null;
 
     function updateNavigation(lang) {
       document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
@@ -21,26 +23,35 @@
       var settings = options || {};
       var panels = Array.prototype.slice.call(document.querySelectorAll("[data-lang-panel]"));
       var nextPanel = document.querySelector('[data-lang-panel="' + lang + '"]');
-      var activePanel = document.querySelector("[data-lang-panel]:not([hidden])");
+      var activePanel = currentLang
+        ? document.querySelector('[data-lang-panel="' + currentLang + '"]')
+        : document.querySelector("[data-lang-panel]:not([hidden])");
+      var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       if (!nextPanel) return;
+      if (transitionTimer) {
+        window.clearTimeout(transitionTimer);
+        transitionTimer = null;
+      }
 
       updateNavigation(lang);
 
-      if (settings.instant || !activePanel || activePanel === nextPanel) {
+      if (settings.instant || reduceMotion || !activePanel || activePanel === nextPanel) {
         panels.forEach(function (panel) {
           var isCurrent = panel === nextPanel;
           panel.hidden = !isCurrent;
           panel.classList.remove("is-transitioning-in", "is-transitioning-out");
           panel.classList.toggle("is-active", isCurrent);
         });
+        currentLang = lang;
         return;
       }
 
       activePanel.classList.remove("is-active", "is-transitioning-in");
       activePanel.classList.add("is-transitioning-out");
+      currentLang = lang;
 
-      window.setTimeout(function () {
+      transitionTimer = window.setTimeout(function () {
         activePanel.hidden = true;
         activePanel.classList.remove("is-transitioning-out");
 
@@ -54,8 +65,15 @@
             nextPanel.classList.add("is-active");
           });
         });
+        transitionTimer = null;
       }, transitionDuration);
     }
+
+    window.switchSiteLanguage = function (lang, options) {
+      if (!lang || lang === currentLang) return;
+      localStorage.setItem("site-lang", lang);
+      applyLanguage(lang, options);
+    };
 
     document.addEventListener("DOMContentLoaded", function () {
       var panels = document.querySelectorAll("[data-lang-panel]");
@@ -65,15 +83,6 @@
       var fallback = navigator.language && navigator.language.toLowerCase().indexOf("zh") === 0 ? "zh" : "en";
       var current = stored || fallback;
       applyLanguage(current, { instant: true });
-
-      document.querySelectorAll("[data-lang-switch]").forEach(function (button) {
-        button.addEventListener("click", function () {
-          var lang = button.getAttribute("data-lang-switch");
-          if (lang === document.documentElement.getAttribute("lang").slice(0, 2)) return;
-          localStorage.setItem("site-lang", lang);
-          applyLanguage(lang);
-        });
-      });
     });
   })();
 </script>

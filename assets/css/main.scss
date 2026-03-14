@@ -279,6 +279,9 @@ h1:before, .anchor:before {
     border: 1px solid rgba(38, 43, 51, 0.12);
     border-radius: 999px;
     background: #fff;
+    position: relative;
+    z-index: 4;
+    pointer-events: auto;
 }
 
 .lang-toggle__button {
@@ -286,10 +289,20 @@ h1:before, .anchor:before {
     background: transparent;
     color: #5c6470;
     border-radius: 999px;
+    cursor: pointer;
     padding: .38rem .78rem;
     font-size: .84rem;
     font-weight: 700;
     line-height: 1;
+    position: relative;
+    z-index: 5;
+    pointer-events: auto;
+    transition: background-color .22s ease, color .22s ease, transform .22s ease;
+}
+
+.lang-toggle__button:hover {
+    color: #1f2937;
+    transform: translateY(-1px);
 }
 
 .lang-toggle__button.is-active {
