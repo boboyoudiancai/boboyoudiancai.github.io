@@ -165,7 +165,7 @@
   margin: 0;
 
   @include breakpoint($large) {
-    margin-top: 10px;
+    margin-top: 18px;
     margin-bottom: 10px;
   }
 }
@@ -176,6 +176,17 @@
   }
   font-family: $sans-serif;
   font-size: $type-size-4;
+}
+
+.author__subtitle {
+  margin: 6px 0 0;
+  color: #626b78;
+  font-size: $type-size-6;
+  line-height: 1.45;
+
+  @include breakpoint($large) {
+    margin-top: 8px;
+  }
 }
 
 .author__bio {

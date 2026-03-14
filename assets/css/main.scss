@@ -233,6 +233,7 @@ h1:before, .anchor:before {
     text-decoration: none;
     font-weight: 600;
     border: 1px solid rgba(38, 43, 51, 0.08);
+    box-shadow: none;
 }
 
 .show_repo_stars.is-visible {
@@ -247,4 +248,189 @@ h1:before, .anchor:before {
 
 .repo-stat-value {
     min-width: 1.5rem;
+}
+
+.honor-grid {
+    display: grid;
+    gap: .8rem 1.1rem;
+    margin: .7rem 0 1.2rem;
+
+    @include breakpoint($large) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+    }
+}
+
+.honor-card {
+    display: grid;
+    gap: .8rem;
+    margin: 0;
+    padding: .72rem;
+    border-top: 1px solid rgba(40, 44, 52, 0.1);
+    border-bottom: 1px solid rgba(40, 44, 52, 0.1);
+    background: #ffffff;
+
+    @include breakpoint($medium) {
+        grid-template-columns: minmax(132px, 168px) minmax(0, 1fr);
+        align-items: stretch;
+    }
+}
+
+.honor-card--textonly {
+    display: block;
+}
+
+.honor-card__media {
+    display: flex;
+}
+
+.honor-card__certificate {
+    width: 100%;
+    min-height: 0;
+    border-radius: 10px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+.honor-card__certificate-inner {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.45 / 1;
+    min-height: 0;
+    border-radius: 10px;
+    border: 0;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 252, 244, 0.92) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .65rem;
+    overflow: hidden;
+}
+
+.honor-card__certificate-inner--image {
+    aspect-ratio: auto;
+    min-height: 0;
+    padding: 0;
+    background: transparent;
+    display: block;
+}
+
+.honor-card__certificate-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 144px;
+    object-fit: contain;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.honor-card__certificate-label {
+    font-size: .68rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: #967847;
+    font-weight: 700;
+}
+
+.honor-card__certificate-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: .9rem;
+    color: #5b4b2c;
+    font-weight: 700;
+    text-align: center;
+}
+
+.honor-card__certificate-line {
+    width: 62%;
+    height: 1px;
+    background: rgba(150, 120, 71, 0.34);
+}
+
+.honor-card__certificate-line--short {
+    width: 42%;
+}
+
+.honor-card__certificate-seal {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .56rem;
+    font-weight: 700;
+    color: #8f2f2f;
+    border: 2px solid rgba(143, 47, 47, 0.45);
+    background: rgba(255, 245, 245, 0.72);
+}
+
+.honor-card__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: .15rem;
+}
+
+.honor-card__date {
+    margin: 0 0 .14rem;
+    color: #8b93a1;
+    font-size: .61rem;
+    line-height: 1.2;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.honor-card__meta {
+    font-size: .7rem;
+    color: #5f6673;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.honor-card__title {
+    margin: .22rem 0 .14rem;
+    font-size: .85rem;
+    line-height: 1.35;
+}
+
+.honor-card__award {
+    margin: 0;
+    color: #2f343b;
+    font-weight: 700;
+    font-size: .74rem;
+}
+
+.honor-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin: .65rem 0 .75rem;
+}
+
+.honor-card__tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 0 .68rem;
+    border-radius: 999px;
+    border: 1px solid rgba(40, 44, 52, 0.1);
+    background: #fafafa;
+    color: #606775;
+    font-size: .82rem;
+}
+
+.honor-card__note {
+    margin: 0;
+    color: #5d6572;
+    line-height: 1.6;
+    font-size: .93rem;
 }
