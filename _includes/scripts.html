@@ -5,17 +5,56 @@
 {% include fetch_github_repo_stats.html %}
 <script>
   (function () {
-    function applyLanguage(lang) {
+    var transitionDuration = 320;
+
+    function updateNavigation(lang) {
       document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
-      document.querySelectorAll("[data-lang-panel]").forEach(function (panel) {
-        panel.hidden = panel.getAttribute("data-lang-panel") !== lang;
-      });
       document.querySelectorAll("[data-nav-en][data-nav-zh]").forEach(function (link) {
         link.textContent = link.getAttribute(lang === "zh" ? "data-nav-zh" : "data-nav-en");
       });
       document.querySelectorAll("[data-lang-switch]").forEach(function (button) {
         button.classList.toggle("is-active", button.getAttribute("data-lang-switch") === lang);
       });
+    }
+
+    function applyLanguage(lang, options) {
+      var settings = options || {};
+      var panels = Array.prototype.slice.call(document.querySelectorAll("[data-lang-panel]"));
+      var nextPanel = document.querySelector('[data-lang-panel="' + lang + '"]');
+      var activePanel = document.querySelector("[data-lang-panel]:not([hidden])");
+
+      if (!nextPanel) return;
+
+      updateNavigation(lang);
+
+      if (settings.instant || !activePanel || activePanel === nextPanel) {
+        panels.forEach(function (panel) {
+          var isCurrent = panel === nextPanel;
+          panel.hidden = !isCurrent;
+          panel.classList.remove("is-transitioning-in", "is-transitioning-out");
+          panel.classList.toggle("is-active", isCurrent);
+        });
+        return;
+      }
+
+      activePanel.classList.remove("is-active", "is-transitioning-in");
+      activePanel.classList.add("is-transitioning-out");
+
+      window.setTimeout(function () {
+        activePanel.hidden = true;
+        activePanel.classList.remove("is-transitioning-out");
+
+        nextPanel.hidden = false;
+        nextPanel.classList.remove("is-active", "is-transitioning-out");
+        nextPanel.classList.add("is-transitioning-in");
+
+        window.requestAnimationFrame(function () {
+          window.requestAnimationFrame(function () {
+            nextPanel.classList.remove("is-transitioning-in");
+            nextPanel.classList.add("is-active");
+          });
+        });
+      }, transitionDuration);
     }
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -25,11 +64,12 @@
       var stored = localStorage.getItem("site-lang");
       var fallback = navigator.language && navigator.language.toLowerCase().indexOf("zh") === 0 ? "zh" : "en";
       var current = stored || fallback;
-      applyLanguage(current);
+      applyLanguage(current, { instant: true });
 
       document.querySelectorAll("[data-lang-switch]").forEach(function (button) {
         button.addEventListener("click", function () {
           var lang = button.getAttribute("data-lang-switch");
+          if (lang === document.documentElement.getAttribute("lang").slice(0, 2)) return;
           localStorage.setItem("site-lang", lang);
           applyLanguage(lang);
         });

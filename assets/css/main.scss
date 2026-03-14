@@ -135,16 +135,19 @@ h1:before, .anchor:before {
     gap: .6rem;
     padding: .32rem .8rem;
     border-radius: 999px;
-    background: linear-gradient(90deg, #eef4ff 0%, #f7faff 100%);
-    color: #00369f;
+    background: linear-gradient(90deg, #f2f2f3 0%, #fafafb 100%);
+    color: #1b1c1f;
     font-weight: 600;
     text-decoration: none;
-    border: 1px solid rgba(0, 54, 159, 0.12);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(27, 28, 31, 0.12);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.75);
+    transition: background .22s ease, border-color .22s ease, transform .22s ease;
 }
 
 .show_paper_citations a:hover {
-    background: linear-gradient(90deg, #e6efff 0%, #f1f6ff 100%);
+    background: linear-gradient(90deg, #ececef 0%, #f5f5f7 100%);
+    border-color: rgba(27, 28, 31, 0.18);
+    transform: translateY(-1px);
 }
 
 .citation-visual {
@@ -161,15 +164,15 @@ h1:before, .anchor:before {
     height: 1.9rem;
     border-radius: 50%;
     background:
-        radial-gradient(circle at center, #ffffff 52%, transparent 53%),
-        conic-gradient(#00369f var(--citation-progress), rgba(0, 54, 159, 0.14) 0);
-    box-shadow: inset 0 0 0 1px rgba(0, 54, 159, 0.08);
+        radial-gradient(circle at center, #ffffff 54%, transparent 55%),
+        conic-gradient(#1b1c1f var(--citation-progress), rgba(27, 28, 31, 0.12) 0);
+    box-shadow: inset 0 0 0 1px rgba(27, 28, 31, 0.08);
 }
 
 .citation-ring-value {
     font-size: .68rem;
     font-weight: 700;
-    color: #00369f;
+    color: #1b1c1f;
     line-height: 1;
 }
 
@@ -294,8 +297,47 @@ h1:before, .anchor:before {
     color: #fff;
 }
 
+.lang-panel {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+    transition: opacity .32s cubic-bezier(.22, 1, .36, 1),
+                transform .32s cubic-bezier(.22, 1, .36, 1),
+                filter .32s cubic-bezier(.22, 1, .36, 1);
+    will-change: opacity, transform, filter;
+}
+
+.lang-panel.is-transitioning-out {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(3px);
+}
+
+.lang-panel.is-transitioning-in {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(3px);
+}
+
+.lang-panel.is-active {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
 .lang-panel[hidden] {
     display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .show_paper_citations a,
+    .lang-panel {
+        transition: none;
+    }
+
+    .show_paper_citations a:hover {
+        transform: none;
+    }
 }
 
 .honor-grid {
