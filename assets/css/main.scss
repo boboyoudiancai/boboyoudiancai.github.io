@@ -193,10 +193,10 @@ h1:before, .anchor:before {
 
 .repo-card {
     padding: 1.1rem 1.15rem;
-    border: 1px solid rgba(34, 75, 141, 0.12);
+    border: 1px solid rgba(38, 43, 51, 0.1);
     border-radius: 14px;
-    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-    box-shadow: 0 10px 24px rgba(24, 39, 75, 0.06);
+    background: linear-gradient(180deg, #ffffff 0%, #fbfbfc 100%);
+    box-shadow: 0 10px 24px rgba(22, 26, 31, 0.05);
 }
 
 .repo-card__title {
@@ -210,7 +210,7 @@ h1:before, .anchor:before {
 
 .repo-card__description {
     margin: 0;
-    color: #4d5c73;
+    color: #555d68;
     line-height: 1.6;
 }
 
@@ -229,11 +229,11 @@ h1:before, .anchor:before {
     gap: .45rem;
     padding: .38rem .72rem;
     border-radius: 999px;
-    background: #eef4ff;
-    color: #163d78;
+    background: #f3f4f6;
+    color: #2f343b;
     text-decoration: none;
     font-weight: 600;
-    border: 1px solid rgba(22, 61, 120, 0.1);
+    border: 1px solid rgba(38, 43, 51, 0.08);
 }
 
 .show_repo_stars.is-visible {
@@ -243,7 +243,7 @@ h1:before, .anchor:before {
 .repo-stat-divider {
     width: 1px;
     height: .9rem;
-    background: rgba(22, 61, 120, 0.18);
+    background: rgba(38, 43, 51, 0.16);
 }
 
 .repo-stat-value {

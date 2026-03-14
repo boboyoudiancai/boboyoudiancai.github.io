@@ -49,7 +49,7 @@ Submitted to *IEEE Transactions on Pattern Analysis and Machine Intelligence* (*
 
 
 
-# 🗃 Repositories
+# 📦 Repositories
 
 <div class="repo-grid">
   <div class="repo-card">
