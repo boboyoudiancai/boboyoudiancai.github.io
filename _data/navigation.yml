@@ -9,8 +9,11 @@ main:
   - title: "Publications"
     url: "/#-publications"
 
-  - title: "Honors"
-    url: "/#-honors"
+  - title: "🗃 Repositories"
+    url: "/#-repositories"
+
+  - title: "Honors and Scholarships"
+    url: "/#-honors-and-scholarships"
 
   - title: "Educations"
     url: "/#-educations"

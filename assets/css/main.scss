@@ -180,3 +180,72 @@ h1:before, .anchor:before {
 .show_paper_citations.is-visible {
     display: inline-block;
 }
+
+.repo-grid {
+    display: grid;
+    gap: 1rem;
+    margin: 1.25rem 0 2rem;
+
+    @include breakpoint($medium) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.repo-card {
+    padding: 1.1rem 1.15rem;
+    border: 1px solid rgba(34, 75, 141, 0.12);
+    border-radius: 14px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    box-shadow: 0 10px 24px rgba(24, 39, 75, 0.06);
+}
+
+.repo-card__title {
+    margin: 0 0 .45rem;
+    font-size: 1.02rem;
+}
+
+.repo-card__title a {
+    text-decoration: none;
+}
+
+.repo-card__description {
+    margin: 0;
+    color: #4d5c73;
+    line-height: 1.6;
+}
+
+.repo-card__meta {
+    margin-top: .9rem;
+}
+
+.show_repo_stars {
+    display: none;
+    font-size: .9rem;
+}
+
+.show_repo_stars a {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    padding: .38rem .72rem;
+    border-radius: 999px;
+    background: #eef4ff;
+    color: #163d78;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid rgba(22, 61, 120, 0.1);
+}
+
+.show_repo_stars.is-visible {
+    display: inline-block;
+}
+
+.repo-stat-divider {
+    width: 1px;
+    height: .9rem;
+    background: rgba(22, 61, 120, 0.18);
+}
+
+.repo-stat-value {
+    min-width: 1.5rem;
+}

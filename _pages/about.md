@@ -49,7 +49,30 @@ Submitted to *IEEE Transactions on Pattern Analysis and Machine Intelligence* (*
 
 
 
-# 🎖 Honors
+# 🗃 Repositories
+
+<div class="repo-grid">
+  <div class="repo-card">
+    <h3 class="repo-card__title"><a href="https://github.com/YuZhaoshu/Efficient-VLAs-Survey">Efficient-VLAs-Survey</a></h3>
+    <p class="repo-card__description">This is a curated list of research related to <em>A Survey on Efficient Vision-Language-Action Models</em>.</p>
+    <div class="repo-card__meta">
+      <span class="show_repo_stars" data-github-repo="YuZhaoshu/Efficient-VLAs-Survey" data-github-url="https://github.com/YuZhaoshu/Efficient-VLAs-Survey"></span>
+    </div>
+  </div>
+
+  <div class="repo-card">
+    <h3 class="repo-card__title"><a href="https://github.com/boboyoudiancai/Snaprop_Instant">Snaprop Instant</a></h3>
+    <p class="repo-card__description"><em>Snaprop Instant</em> is a multimodal, all-in-one property value analysis system for intelligent real estate appraisal.</p>
+    <div class="repo-card__meta">
+      <span class="show_repo_stars" data-github-repo="boboyoudiancai/Snaprop_Instant" data-github-url="https://github.com/boboyoudiancai/Snaprop_Instant"></span>
+    </div>
+  </div>
+</div>
+
+
+# 🎖 Honors and Scholarships
+
+- *2024.11*, 2024 Ningquan Research Scholarship.
 
 # 📖 Educations
 - *2023.09 - 2027.06*, B.S., Computer Science and Technology, Tongji University.
