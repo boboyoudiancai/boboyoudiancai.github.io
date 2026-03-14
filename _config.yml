@@ -6,9 +6,9 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Pengpeng Zeng"
+title                    : "bowangprofile"
 description              : ""
-repository               : ""
+repository               : "boboyoudiancai/boboyoudiancai.github.io"
 google_scholar_stats_use_cdn : true
 
 # google analytics
@@ -21,14 +21,14 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 
 # Site Author
 author:
-  name             : "Pengpeng Zeng" 
-  avatar           : "images/zpp.jpg"
+  name             : "Bo Wang"
+  avatar           : "images/bo-wang-avatar.jpg"
   bio              : ""
   location         : "Shanghai, China"
   employer         :
   pubmed           : 
-  googlescholar    : "https://scholar.google.com/citations?user=Zs0PWb4AAAAJ&hl=en"
-  email            : "is.pengpengzeng@gmail.com"
+  googlescholar    : "https://scholar.google.com/citations?user=BZxc3a0AAAAJ&hl=zh-CN&authuser=1"
+  email            : "2351563@tongji.edu.cn"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -37,7 +37,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "ppengzeng"
+  github           : "boboyoudiancai"
   google_plus      :
   keybase          :
   instagram        :

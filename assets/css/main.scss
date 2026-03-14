@@ -109,3 +109,74 @@ h1:before, .anchor:before {
     background-color: #00369f;
     font-size: .8em;
 }
+
+.paper-meta {
+    margin-top: .5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    align-items: center;
+}
+
+.show_paper_citations {
+    display: none;
+    font-size: .85em;
+    line-height: 1.4;
+}
+
+.show_paper_citations a,
+.show_paper_citations .citation-text {
+    color: inherit;
+}
+
+.show_paper_citations a {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .32rem .8rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #eef4ff 0%, #f7faff 100%);
+    color: #00369f;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid rgba(0, 54, 159, 0.12);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.show_paper_citations a:hover {
+    background: linear-gradient(90deg, #e6efff 0%, #f1f6ff 100%);
+}
+
+.citation-visual {
+    display: inline-flex;
+    align-items: center;
+}
+
+.citation-ring {
+    --citation-progress: 0%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at center, #ffffff 52%, transparent 53%),
+        conic-gradient(#00369f var(--citation-progress), rgba(0, 54, 159, 0.14) 0);
+    box-shadow: inset 0 0 0 1px rgba(0, 54, 159, 0.08);
+}
+
+.citation-ring-value {
+    font-size: .68rem;
+    font-weight: 700;
+    color: #00369f;
+    line-height: 1;
+}
+
+.citation-text {
+    display: inline-block;
+}
+
+.show_paper_citations.is-visible {
+    display: inline-block;
+}

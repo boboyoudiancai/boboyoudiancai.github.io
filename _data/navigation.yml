@@ -9,15 +9,12 @@ main:
   - title: "Publications"
     url: "/#-publications"
 
-  - title: "Honors and Services"
-    url: "/#-honors-and-services"
+  - title: "Honors"
+    url: "/#-honors"
 
   - title: "Educations"
     url: "/#-educations"
-    
-  - title: "Research Grants"
-    url: "/#-research-grants"
-
+  
   # - title: "Invited Talks"
   #   url: "/#-invited-talks"
     

@@ -69,19 +69,21 @@
    Author profile and links
    ========================================================================== */
 .profile_box{
-  @include breakpoint($large) {
-    display: block;
-  }
   display: flex;
   justify-content: flex-start;
   align-content: flex-start;
   align-items: center;
+
+  @include breakpoint($large) {
+    display: block;
+  }
 }
 
 .author__avatar {
   display: table-cell;
   vertical-align: top;
   width: 75px;
+  position: relative;
   // set width only, for non-square avatars
   // height: 36px;
 
@@ -95,10 +97,50 @@
     max-width: 175px;
     min-width: 75px;
     border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    background: #fff;
+    box-shadow: 0 12px 28px rgba(28, 37, 54, 0.12), 0 2px 8px rgba(28, 37, 54, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 
     @include breakpoint($large) {
-      padding: 5px;
-      border: 1px solid $border-color;
+      padding: 7px;
+      border: 1px solid rgba(255, 255, 255, 0.96);
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, rgba(236, 240, 245, 0.98) 0%, rgba(198, 207, 218, 0.92) 52%, rgba(246, 248, 251, 0.98) 100%);
+    z-index: 0;
+    opacity: 1;
+    transform: scale(0.99);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    box-shadow: 0 8px 18px rgba(28, 37, 54, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 28%, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0));
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &:hover {
+    img {
+      transform: translateY(-1px) scale(1.005);
+      box-shadow: 0 15px 32px rgba(28, 37, 54, 0.14), 0 3px 10px rgba(28, 37, 54, 0.08);
+    }
+
+    &::before {
+      opacity: 1;
+      transform: scale(1);
     }
   }
 }
