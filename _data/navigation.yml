@@ -24,6 +24,10 @@ main:
     title_zh: "科研经历"
     url: "/#-research-experience"
 
+  - title_en: "Technical Stack"
+    title_zh: "技术栈"
+    url: "/#-technical-stack"
+
   - title_en: "Educations"
     title_zh: "教育经历"
     url: "/#-educations"
