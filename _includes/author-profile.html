@@ -215,5 +215,21 @@
         <a href="https://en.wikipedia.org/wiki/User:{{ author.wikipedia }}"><i class="fab fa-fw fa-wikipedia-w" aria-hidden="true"></i></a>
       {% endif %}
     </div>
+    <div class="visitor-counter" aria-live="polite">
+      <div class="visitor-counter__title">
+        <i class="fas fa-fw fa-chart-line" aria-hidden="true"></i>
+        <span>Visitor Stats</span>
+      </div>
+      <div class="visitor-counter__stats">
+        <div id="busuanzi_container_site_pv" class="visitor-counter__stat">
+          <span class="visitor-counter__label">Views</span>
+          <strong class="visitor-counter__value" id="busuanzi_value_site_pv"></strong>
+        </div>
+        <div id="busuanzi_container_site_uv" class="visitor-counter__stat">
+          <span class="visitor-counter__label">Visitors</span>
+          <strong class="visitor-counter__value" id="busuanzi_value_site_uv"></strong>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
